@@ -31,11 +31,19 @@ public class CollectionDemo {
 
         Set<MyType> myTypeSet = new HashSet<>();
 
+        var myType = new MyType(1);
+        myTypeSet.add(myType);
         myTypeSet.add(new MyType(1));
         myTypeSet.add(new MyType(2));
         myTypeSet.add(new MyType(3));
         myTypeSet.add(new MyType(1));
 
+        for (var i : myTypeSet) {
+            System.out.println(i.getValue());
+        }
+        System.out.println("========");
+        // dont store mutable objects in set if someone has outside reference
+        myType.setValue(2);
         for (var i : myTypeSet) {
             System.out.println(i.getValue());
         }
